@@ -3,3 +3,6 @@ __pycache__/
 health.db
 uploads/
 .env
+auto_publish.ps1
+自動公開を開始.cmd
+start_auto_publish.cmd
