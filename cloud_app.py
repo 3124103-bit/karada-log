@@ -84,7 +84,7 @@ def nutrition_coach(context, goal, notes):
 食事内容から、食物繊維、鉄、カルシウム、カリウム、マグネシウム、亜鉛、ビタミンA/C/D/葉酸/B12、オメガ3、塩分について「不足・過多の可能性」を慎重に推定してください。
 複数日分の記録がある場合は、単日の不足ではなく、繰り返し不足・過多になっている傾向を優先してください。記録から判断できない栄養素は「不明」と明記してください。
 次のJSONだけを返してください。配列は最大3件、説明は1文ずつにしてください。
-{"headline":"今日の要点", "deficiencies":[{"nutrient":"栄養素", "reason":"理由"}], "next_meal":{"title":"次の一食", "items":["料理・食材"]}, "drink_snack":["飲み物・間食"], "supplements":["必要な場合のみの候補"], "avoid":["控えめにしたいもの"], "note":"注意書き"}
+{{"headline":"今日の要点", "deficiencies":[{{"nutrient":"栄養素", "reason":"理由"}}], "next_meal":{{"title":"次の一食", "items":["料理・食材"]}}, "drink_snack":["飲み物・間食"], "supplements":["必要な場合のみの候補"], "avoid":["控えめにしたいもの"], "note":"注意書き"}}
 記録: {json.dumps(context, ensure_ascii=False, default=str)}"""
     raw = OpenAI(api_key=secret("OPENAI_API_KEY")).responses.create(
         model=secret("OPENAI_MODEL") or "gpt-4.1-mini", input=prompt, max_output_tokens=650
